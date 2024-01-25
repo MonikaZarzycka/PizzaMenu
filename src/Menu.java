@@ -1,6 +1,5 @@
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Menu {
@@ -46,7 +45,7 @@ public class Menu {
 
     public static void printCalories(List<Pizza> menu) {
         Stream<Pizza> pizzaStream = menu.stream();
-        pizzaStream.forEach(pizza -> System.out.println("Total calories in " + pizza.getName() + ": " + pizza.calculateTotalCalories()+""));
+        pizzaStream.forEach(pizza -> System.out.println("Total calories in " + pizza.getName() + ": " + pizza.calculateTotalCalories() + ""));
     }
 
 
