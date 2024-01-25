@@ -24,7 +24,7 @@ public class Menu {
         getPizzaWithHighestCalories(menu);
         System.out.println();
         Pizza pizzaWithLowestCalories = getPizzaWithLowestCalories(menu);
-        System.out.println("Pizza with lowest calories is: " + pizzaWithLowestCalories.getName() +
+        System.out.println("Pizza with lowest calories is: " + pizzaWithLowestCalories.name() +
                 " with " + pizzaWithLowestCalories.calculateTotalCalories() + " calories");
     }
 
@@ -32,7 +32,7 @@ public class Menu {
     public static void printSliceCalories(List<Pizza> menu, int slices) {
         Stream<Pizza> pizzaStream = menu.stream();
         pizzaStream.forEach(pizza ->
-                System.out.println("Total calories in " + pizza.getName() +
+                System.out.println("Total calories in " + pizza.name() +
                         " (" + slices + " slices): " + pizza.calculateCaloriesPerSlice(slices)));
     }
 
@@ -40,35 +40,35 @@ public class Menu {
     public static void printVegan(List<Pizza> menu) {
         Stream<Pizza> pizzaStream = menu.stream();
         pizzaStream.filter(Pizza::isVegan)
-                .forEach(pizza -> System.out.println(pizza.getName()));
+                .forEach(pizza -> System.out.println(pizza.name()));
     }
 
     public static void printCalories(List<Pizza> menu) {
         Stream<Pizza> pizzaStream = menu.stream();
-        pizzaStream.forEach(pizza -> System.out.println("Total calories in " + pizza.getName() + ": " + pizza.calculateTotalCalories() + ""));
+        pizzaStream.forEach(pizza -> System.out.println("Total calories in " + pizza.name() + ": " + pizza.calculateTotalCalories() + ""));
     }
 
 
     public static void printContainsCelery(List<Pizza> menu) {
         List<Pizza> pizzasWithCelery = menu.stream()
-                .filter(pizza -> pizza.getIngredientsWithWeight().containsKey(Ingredients.CELERY)).toList();
+                .filter(pizza -> pizza.ingredientsWithWeight().containsKey(Ingredients.CELERY)).toList();
 
         System.out.println("Pizzas with celery:");
-        pizzasWithCelery.forEach(pizza -> System.out.println(pizza.getName()));
+        pizzasWithCelery.forEach(pizza -> System.out.println(pizza.name()));
     }
 
     public static boolean checkIsVeganAndContainsTomatoAndPeppers(List<Pizza> menu) {
         return menu.stream()
                 .anyMatch(pizza ->
                         pizza.isVegan() &&
-                                pizza.getIngredientsWithWeight().containsKey(Ingredients.TOMATO) &&
-                                pizza.getIngredientsWithWeight().containsKey(Ingredients.PEPPERS)
+                                pizza.ingredientsWithWeight().containsKey(Ingredients.TOMATO) &&
+                                pizza.ingredientsWithWeight().containsKey(Ingredients.PEPPERS)
                 );
     }
 
     public static boolean doesContainMozzarella(List<Pizza> menu) {
         return menu.stream()
-                .allMatch(pizza -> pizza.getIngredientsWithWeight().containsKey(Ingredients.MOZZARELLA));
+                .allMatch(pizza -> pizza.ingredientsWithWeight().containsKey(Ingredients.MOZZARELLA));
     }
 
     public static Pizza getPizzaWithHighestCalories(List<Pizza> menu) {

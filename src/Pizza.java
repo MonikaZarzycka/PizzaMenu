@@ -1,27 +1,6 @@
 import java.util.Map;
 
-public class Pizza {
-    private final Map<Ingredients, Integer> ingredientsWithWeight;
-    private final boolean isVegan;
-    private final String name;
-
-    public Pizza(Map<Ingredients, Integer> ingredientsWithWeight, boolean isVegan, String name) {
-        this.ingredientsWithWeight = ingredientsWithWeight;
-        this.isVegan = isVegan;
-        this.name = name;
-    }
-
-    public Map<Ingredients, Integer> getIngredientsWithWeight() {
-        return ingredientsWithWeight;
-    }
-
-    public boolean isVegan() {
-        return isVegan;
-    }
-
-    public String getName() {
-        return name;
-    }
+public record Pizza(Map<Ingredients, Integer> ingredientsWithWeight, boolean isVegan, String name) {
 
     public int calculateTotalCalories() {
         return ingredientsWithWeight.entrySet().stream()

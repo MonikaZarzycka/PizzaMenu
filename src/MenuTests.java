@@ -66,7 +66,7 @@ class MenuTest {
 
         Pizza pizzaWithLowestCalories = Menu.getPizzaWithLowestCalories(menu);
 
-        assertEquals("Low calories Pizza", pizzaWithLowestCalories.getName());
+        assertEquals("Low calories Pizza", pizzaWithLowestCalories.name());
 
     }
 
@@ -86,7 +86,7 @@ class MenuTest {
 
         Pizza pizzaWithHighestCalories = Menu.getPizzaWithHighestCalories(menu);
 
-        assertEquals("High calories Pizza", pizzaWithHighestCalories.getName());
+        assertEquals("High calories Pizza", pizzaWithHighestCalories.name());
     }
 
     @Test
