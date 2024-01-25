@@ -5,7 +5,7 @@ import java.util.stream.Stream;
 public class Menu {
     public static void main(String[] args) {
 
-        List<Pizza> menu = MenuLoader.loadMenuFromTxt("C:\\Users\\misia\\IdeaProjects\\POII\\OblicznieKaloriiPizzy\\src\\resources\\menu.txt");
+        List<Pizza> menu = MenuLoader.loadMenuFromTxt("src/resources/menu.txt");
 
         System.out.println("Calorie list:");
         printSliceCalories(menu, 8);
